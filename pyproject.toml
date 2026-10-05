@@ -1,0 +1,28 @@
+[project]
+name = "concept-prune"
+version = "0.1.0"
+description = "Concept-aware structured (width) pruning for HF causal LMs -- protect neurons important to specific concepts instead of pure magnitude-only pruning."
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.8",
+    "transformers>=4.55,<5.18",
+    "optipfair>=0.2.1",
+    "lm_eval>=0.4.9",
+    "accelerate>=1.10",
+    "sentencepiece>=0.2",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+translation = ["sacrebleu>=2.6"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+concept-prune = "concept_prune.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["concept_prune"]

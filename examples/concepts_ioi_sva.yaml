@@ -1,0 +1,10 @@
+# The validated 2-concept "efficiency sweet spot" found on Llama-3.2-1B at
+# 40% compression (see README "Concept-count sweep"): IOI + SVA already
+# capture nearly all the general-fluency benefit and generalize
+# substantially to a third, unprobed concept (factual recall), while
+# staying cheaper than protecting more concepts explicitly.
+concepts:
+  ioi:
+    template: builtin:ioi
+  sva:
+    template: builtin:sva

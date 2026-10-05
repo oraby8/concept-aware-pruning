@@ -1,0 +1,14 @@
+# Disjoint from concepts_ioi_sva.yaml's entity pools would be more rigorous
+# (see README "Held-out validation") -- the builtin templates re-sample
+# randomly each run rather than drawing from separate train/holdout pools,
+# so for a fully non-circular read, write your own holdout generator with a
+# disjoint name/place/item list (copy examples_templates.py as a starting
+# point) rather than relying on this file as-is for anything beyond a quick
+# smoke check.
+concepts:
+  ioi:
+    template: builtin:ioi
+  sva:
+    template: builtin:sva
+  factual:
+    template: builtin:factual

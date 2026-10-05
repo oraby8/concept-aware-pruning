@@ -1,0 +1,16 @@
+# "Concept = task quality" pattern: protect whatever the model needs to
+# produce a correct translation, instead of a narrow linguistic probe.
+# Validated on google/gemma-4-E2B-it (production Arabic-translation model):
+# real chrF/BLEU improved over magnitude-only pruning at 20% compression
+# (see README "Arabic translation result").
+#
+# Generate translation_pairs.jsonl first with build_translation_pairs.py,
+# e.g.:
+#   python examples/build_translation_pairs.py \
+#     --model google/gemma-4-E2B-it \
+#     --data your_en_ar_data.jsonl --source-key source --target-key target \
+#     --system-prompt "You are a professional translator. Translate the user text from English to Arabic (Modern Standard Arabic). Output only the translation, no extra text." \
+#     --n-pairs 50 --concept-name translation_ar --out translation_pairs.jsonl
+concepts:
+  translation_ar:
+    pairs_file: translation_pairs.jsonl
